@@ -6,15 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="tbl_user")
 public class User {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="user_id")
 	private int id;
+	
+	@Size(min=2,max=20)
 	private String username;
 	private String password;
 
